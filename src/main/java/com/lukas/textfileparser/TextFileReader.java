@@ -1,22 +1,28 @@
 package com.lukas.textfileparser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.springframework.stereotype.Component;
 
+import java.io.*;
+
+
+@Component("textFileReader")
 public class TextFileReader {
 
-    private String readFromInputStream(InputStream inputStream)
+    public TextFileReader() {
+    }
+
+    String readFromFile(File file)
             throws IOException {
+        InputStream inputStream = new FileInputStream(file);
         StringBuilder resultStringBuilder = new StringBuilder();
         try (BufferedReader br
                      = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\n");
+                resultStringBuilder.append(line);
             }
         }
         return resultStringBuilder.toString();
     }
+
 }
