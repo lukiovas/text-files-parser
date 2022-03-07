@@ -1,19 +1,17 @@
 package com.lukas.textfileparser;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 
 
-@Component("textFileReader")
+@Component
 public class TextFileReader {
 
-    public TextFileReader() {
-    }
-
-    String readFromFile(File file)
+    String readFromFile(MultipartFile file)
             throws IOException {
-        InputStream inputStream = new FileInputStream(file);
+        InputStream inputStream = file.getInputStream();
         StringBuilder resultStringBuilder = new StringBuilder();
         try (BufferedReader br
                      = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -24,5 +22,4 @@ public class TextFileReader {
         }
         return resultStringBuilder.toString();
     }
-
 }
