@@ -43,13 +43,13 @@ public class TextParser {
 
         Map<String,Map<String,Long>> outputMap = new HashMap<>();
 
-        outputMap.put("Words and count of chars from A to G",
+        outputMap.put("Words and count of first chars from A to G",
                 getSubMap(stringsArrayList,'a','g'));
-        outputMap.put("Words and count of chars from H to N",
+        outputMap.put("Words and count of first chars from H to N",
                 getSubMap(stringsArrayList,'h','n'));
-        outputMap.put("Words and count of chars from O to U",
+        outputMap.put("Words and count of first chars from O to U",
                 getSubMap(stringsArrayList,'o','u'));
-        outputMap.put("Words and count of chars from V to Z",
+        outputMap.put("Words and count of first chars from V to Z",
                 getSubMap(stringsArrayList,'v','z'));
 
         // return sorted map
