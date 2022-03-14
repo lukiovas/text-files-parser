@@ -29,26 +29,10 @@ public class TextFileUploadController {
             return textParser.getoutputMap(Arrays.asList(textFiles));
         }
         else {
-            Map<String,Map<String,Long>> emptyMap = new ConcurrentHashMap<>();
-            emptyMap.put("Provided file is not of type txt.", new ConcurrentHashMap<>());
+            Map<String,Map<String,Long>> emptyMap = new HashMap<>();
+            emptyMap.put("Provided file is not of type txt.", new HashMap<>());
             return emptyMap;
         }
     }
-
-//    @GetMapping(value = "/files/{file_name}")
-//    public void getFile(
-//            @PathVariable("file_name") String fileName,
-//            HttpServletResponse response) {
-//        try {
-//            // get your file as InputStream
-//            InputStream is = ...;
-//            // copy it to response's OutputStream
-//            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-//            response.flushBuffer();
-//        } catch (IOException ex) {
-//            log.info("Error writing file to output stream. Filename was '{}'", fileName, ex);
-//            throw new RuntimeException("IOError writing file to output stream");
-//        }
-//    }
 }
 
